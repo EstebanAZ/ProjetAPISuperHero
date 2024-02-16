@@ -99,5 +99,30 @@ export class SuperHeroController {
         }
     }
 
+    public async getSuperHeroByseach(
+        req: Request, res: Response, next: NextFunction): Promise<void> {
+        const name: string = req.params.id;
+
+        try {
+            const response: AxiosResponse = await axios.get(
+                `https://www.superheroapi.com/api.php/${this.API_KEY}/search/${name}
+                `
+            );
+            const minimalData: MinimalSuperHeroData = {
+                biography: response.data.biography,
+                name: response.data.name,
+                image: response.data.image.url,
+                powerstats: response.data.powerstats,
+                appearance: response.data.appearance,
+                work: response.data.work,
+                connections: response.data.connections
+            }
+
+            res.json(minimalData);
+        } catch (error) {
+            next(new ApiError("Erreur lors de la récupération des données de l'hero"));
+        }
+    }
+
 
 }
