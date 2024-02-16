@@ -23,6 +23,11 @@ app.get('/weather/:city', async(req: Request, res: Response, next: NextFunction)
    await weatherController.getWeatherByCity(req, res, next);
 })
 
+// Route to serve index.html
+app.get('/', (req: Request, res: Response) => {
+    res.sendFile('index.html', { root: 'Public' });
+});
+
 const specs = swaggerJSDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use(errorHandler);

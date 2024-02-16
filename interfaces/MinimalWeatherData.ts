@@ -5,8 +5,4 @@ interface MinimalWeatherData {
     condition: string;
     icon : string;
 }
-
-interface MinimalWeatherData {
-    temperatureF: string;
-}
 export { MinimalWeatherData }

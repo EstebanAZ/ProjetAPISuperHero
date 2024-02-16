@@ -63,7 +63,6 @@ export class WeatherController {
                 temperataure:  response.data.current.temp_c,
                 condition:  response.data.current.condition.text,
                 icon : response.data.current.condition.icon,
-                temperatureF: response.data.current.temp_f
             }
 
             res.json(minimalData);
@@ -107,7 +106,6 @@ export class WeatherController {
                 temperataure:  response.data.current.temp_c,
                 condition:  response.data.current.condition.text,
                 icon : response.data.current.condition.icon,
-                temperatureF: response.data.current.temp_f
             }
 
             res.json(minimalData);
