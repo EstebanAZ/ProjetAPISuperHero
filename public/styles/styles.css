@@ -1,0 +1,127 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://www.designyourway.net/blog/wp-content/uploads/2018/08/a0026461_508d3d23cd366.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: filter 0.5s ease;
+    /* Smooth transition for blur effect */
+}
+
+/* Container styles */
+.weather-div {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    background-color: rgba(134, 225, 255, 0.8);
+    /* Light semi-transparent background */
+    color: #333;
+    /* Text color */
+}
+
+/* Form styles */
+.weather-form-style {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.weather-city-input {
+    flex: 1 0 70%;
+    /* Adjust size based on screen width */
+    max-width: 70%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.weather-city-btn {
+    flex: 1 0 25%;
+    /* Adjust size based on screen width */
+    max-width: 25%;
+    margin-left: 10px;
+    margin-bottom: 2%;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    /* Smooth transition on hover */
+}
+
+.weather-city-btn:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+/* Result styles */
+.weather-result-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.weather-result-subdiv {
+    flex: 1 0 100%;
+    /* Adjust size based on screen width */
+    max-width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Slightly less transparent background */
+    color: #333;
+    /* Text color */
+}
+
+.weather-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.weather-condition {
+    font-weight: bold;
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Hover effect */
+.weather-div:hover~body {
+    filter: blur(5px);
+    /* Blur the body when hovering over .weather-div */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .weather-form-style {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .weather-city-input,
+    .weather-city-btn {
+        flex: 1 0 100%;
+        max-width: 100%;
+        margin: 0 0 10px;
+    }
+}

@@ -5,7 +5,6 @@ interface MinimalSuperHeroData {
     condition: string;
     icon : string;
 }
-
 interface MinimalSuperHeroData {
     temperatureF: string;
 }
