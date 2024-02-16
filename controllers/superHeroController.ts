@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import { ApiError } from "../errors/ApiError";
 import { MinimalSuperHeroData } from "../interfaces/MinimalSuperHeroData";
 import { ImageSuperHeroData } from "../interfaces/ImageSuperHeroData";
+import { PowerstatsSuperHeroData } from "../interfaces/PowerstatsSuperHeroData";
 
 export class SuperHeroController {
     private API_KEY: string;
@@ -69,6 +70,30 @@ export class SuperHeroController {
             }
 
             res.json(imageData);
+        } catch (error) {
+            next(new ApiError("Erreur lors de la récupération des données de l'hero"));
+        }
+    }
+
+    public async getSuperHeroStats(
+        req: Request, res: Response, next: NextFunction): Promise<void> {
+        const id: string = req.params.id;
+
+        try {
+            const response: AxiosResponse = await axios.get(
+                `https://www.superheroapi.com/api.php/${this.API_KEY}/${id}`
+            );
+            const StatsData: PowerstatsSuperHeroData = {
+                name: response.data.name,
+                intelligence: response.data.powerstats.intelligence,
+                strength: response.data.powerstats.strength,
+                speed: response.data.powerstats.speed,
+                durability: response.data.powerstats.durability,
+                power: response.data.powerstats.power,
+                combat: response.data.powerstats.combat
+            }
+
+            res.json(StatsData);
         } catch (error) {
             next(new ApiError("Erreur lors de la récupération des données de l'hero"));
         }
