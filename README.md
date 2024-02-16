@@ -29,7 +29,7 @@
 `localhost:3000/superHero/:id/powerstats``
 ```
 
-### Exemple 2: récupérer l'image du héro selon son id
+### Exemple 3: récupérer l'image du héro selon son id
 
 ```bash
 `localhost:3000/superHero/:id/image``
