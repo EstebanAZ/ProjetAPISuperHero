@@ -28,9 +28,10 @@ app.get('/superHero/:id/image', async(req: Request, res: Response, next: NextFun
  app.get('/superHero/:id/powerstats', async(req: Request, res: Response, next: NextFunction) => {
     await superHeroController.getSuperHeroStats(req, res, next);
  })
- app.get('/superHero/search/:name', async(req: Request, res: Response, next: NextFunction) => {
-    await superHeroController.getSuperHeroStats(req, res, next);
- })
+//  app.get('/superHero/search/:name', async(req: Request, res: Response, next: NextFunction) => {
+//     await superHeroController.getSuperHeroBySearch(req, res, next);
+//  })
+
 // Route to serve index.html
 app.get('/', (req: Request, res: Response) => {
     res.sendFile('index.html', { root: 'Public' });
