@@ -5,7 +5,12 @@ import { MinimalSuperHeroData } from "../interfaces/MinimalSuperHeroData";
 import { ImageSuperHeroData } from "../interfaces/ImageSuperHeroData";
 import { PowerstatsSuperHeroData } from "../interfaces/PowerstatsSuperHeroData";
 
-
+/**
+ * @swagger
+ * tags:
+ *      name: SuperHero
+ *      description: Opérations liés aux super héros.
+ */
 
 export class SuperHeroController {
     private API_KEY: string;
@@ -13,6 +18,28 @@ export class SuperHeroController {
     constructor(key: string) {
         this.API_KEY = key;
     }
+
+    /**
+     * @swagger
+     * /superHero/{id}:
+     *  get: 
+     *      summary: Obtient les informations du super hero.
+     *      description: Recupérer les informations du super hero.
+     *      tags: [SuperHero]
+     *      parameters:
+     *          - in: path
+     *            name: id
+     *            required: true
+     *            description: ID du Super Hero.
+     *            schema:
+     *              type: string
+     *      responses:
+     *          200: 
+     *            description: Succès. Retourne les données du super hero.
+     *          400:
+     *            description: Erreur lors de la récupération des données du super hero.
+     * 
+     */
 
     public async getSuperHeroByid(
         req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -38,6 +65,28 @@ export class SuperHeroController {
         }
     }
 
+    /**
+     * @swagger
+     * /superHero/{id}/image:
+     *  get: 
+     *      summary: Obtient l'image liée au super hero.
+     *      description: Recupérer l'url de l'image liée au super hero.
+     *      tags: [SuperHero]
+     *      parameters:
+     *          - in: path
+     *            name: id
+     *            required: true
+     *            description: ID du Super Hero.
+     *            schema:
+     *              type: string
+     *      responses:
+     *          200: 
+     *            description: Succès. Retourne les données météo.
+     *          400:
+     *            description: Erreur lors de la récupération des données météo.
+     * 
+     */
+
     public async getSuperHeroImage(
         req: Request, res: Response, next: NextFunction): Promise<void> {
         const id: string = req.params.id;
@@ -55,6 +104,28 @@ export class SuperHeroController {
             next(new ApiError("Erreur lors de la récupération des données de l'hero"));
         }
     }
+
+    /**
+     * @swagger
+     * /superHero/{id}/powerstats:
+     *  get: 
+     *      summary: Obtient les stats du super hero.
+     *      description: Recupérer les différent stats du super hero.
+     *      tags: [SuperHero]
+     *      parameters:
+     *          - in: path
+     *            name: id
+     *            required: true
+     *            description: ID du Super Hero.
+     *            schema:
+     *              type: string
+     *      responses:
+     *          200: 
+     *            description: Succès. Retourne les données météo.
+     *          400:
+     *            description: Erreur lors de la récupération des données météo.
+     * 
+     */
 
     public async getSuperHeroStats(
         req: Request, res: Response, next: NextFunction): Promise<void> {
