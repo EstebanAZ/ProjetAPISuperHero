@@ -62,10 +62,10 @@ export class SuperHeroController {
 
         try {
             const response: AxiosResponse = await axios.get(
-                `https://www.superheroapi.com/api.php/${this.API_KEY}/${id}/image`
+                `https://www.superheroapi.com/api.php/${this.API_KEY}/${id}`
             );
             const imageData: ImageSuperHeroData = {
-                image: response.data.image,
+                image: response.data.image.url,
             }
 
             res.json(imageData);
