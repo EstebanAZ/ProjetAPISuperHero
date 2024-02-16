@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import { NextFunction, Request, Response } from "express";
 import { ApiError } from "../errors/ApiError";
 import { MinimalSuperHeroData } from "../interfaces/MinimalSuperHeroData";
+import { ImageSuperHeroData } from "../interfaces/ImageSuperHeroData";
 
 export class SuperHeroController {
     private API_KEY: string;
@@ -41,11 +42,33 @@ export class SuperHeroController {
             );
             const minimalData: MinimalSuperHeroData = {
                 biography: response.data.biography,
-                name:  response.data.name,
-                image: response.data.image.url
+                name: response.data.name,
+                image: response.data.image.url,
+                powerstats: response.data.powerstats,
+                appearance: response.data.appearance,
+                work: response.data.work,
+                connections: response.data.connections
             }
 
             res.json(minimalData);
+        } catch (error) {
+            next(new ApiError("Erreur lors de la récupération des données de l'hero"));
+        }
+    }
+
+    public async getSuperHeroImage(
+        req: Request, res: Response, next: NextFunction): Promise<void> {
+        const id: string = req.params.id;
+
+        try {
+            const response: AxiosResponse = await axios.get(
+                `https://www.superheroapi.com/api.php/${this.API_KEY}/${id}/image`
+            );
+            const imageData: ImageSuperHeroData = {
+                image: response.data.image,
+            }
+
+            res.json(imageData);
         } catch (error) {
             next(new ApiError("Erreur lors de la récupération des données de l'hero"));
         }
