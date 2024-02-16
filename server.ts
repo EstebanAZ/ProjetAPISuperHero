@@ -1,5 +1,5 @@
 import express, {NextFunction, Request, Response} from "express";
-import { WeatherController } from "./controllers/weatherController";
+import { SuperHeroController } from "./controllers/superHeroController";
 import { errorHandler } from "./midllewares/errorHandler";
 import { API_KEY } from "./constantes/config";
 import dotenv from "dotenv";
@@ -9,7 +9,7 @@ import { swaggerOptions } from "./swaggerOptions";
 dotenv.config();
 const app = express();
 
-const weatherController = new WeatherController(API_KEY) ;
+const superHeroController = new SuperHeroController(API_KEY) ;
 
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
@@ -19,8 +19,8 @@ app.get("/testApi", (req: Request, res: Response) => {
 })
 
 //Route pour récupérer les données météo
-app.get('/weather/:city', async(req: Request, res: Response, next: NextFunction) => {
-   await weatherController.getWeatherByCity(req, res, next);
+app.get('/superHero/:id', async(req: Request, res: Response, next: NextFunction) => {
+   await superHeroController.getSuperHeroByid(req, res, next);
 })
 
 const specs = swaggerJSDoc(swaggerOptions);

@@ -1,4 +1,4 @@
-interface MinimalWeatherData {
+interface MinimalSuperHeroData {
     city: string;
     country: string;
     temperataure: string;
@@ -6,7 +6,7 @@ interface MinimalWeatherData {
     icon : string;
 }
 
-interface MinimalWeatherData {
+interface MinimalSuperHeroData {
     temperatureF: string;
 }
-export { MinimalWeatherData }
+export { MinimalSuperHeroData }

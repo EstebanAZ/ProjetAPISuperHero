@@ -15,21 +15,21 @@
 
 ## Configurations requise 
 
-- Clé API sur openWeather..
+- Clé API sur openSuperHero..
 - Node.js (version x.x.x)
 
 ## Exemples d'utilisation
 ### Exemple 1 : Récupérer la météo d'un pays
 
 ```bash
-`http://api.weatherapi.com/v1/current.json?key=${this.API_KEY}&q=${city}&lang=fr``
+`http://api.SuperHeroapi.com/v1/current.json?key=${this.API_KEY}&q=${city}&lang=fr``
 ```
 
 
 ### Exemple 2
 
 [Documentation officielle de l'Api Meteo](
-https://www.weatherapi.com/docs/)
+https://www.SuperHeroapi.com/docs/)
 
 ### Exemple en image
 
