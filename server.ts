@@ -14,20 +14,23 @@ const superHeroController = new SuperHeroController(API_KEY) ;
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3001;
 
 
-// app.get("/testApi", (req: Request, res: Response) => {
-//     res.send("Coucou, l'api Meteo est active")
-// })
 
-//Route pour récupérer les données météo
+
+// Route for getting a super hero by id
 app.get('/superHero/:id', async(req: Request, res: Response, next: NextFunction) => {
    await superHeroController.getSuperHeroByid(req, res, next);
 })
+
+// Route for getting a super hero image by id
 app.get('/superHero/:id/image', async(req: Request, res: Response, next: NextFunction) => {
     await superHeroController.getSuperHeroImage(req, res, next);
  })
+
+// Route for getting a super hero stats by id
  app.get('/superHero/:id/powerstats', async(req: Request, res: Response, next: NextFunction) => {
     await superHeroController.getSuperHeroStats(req, res, next);
  })
+
 //  app.get('/superHero/search/:name', async(req: Request, res: Response, next: NextFunction) => {
 //     await superHeroController.getSuperHeroBySearch(req, res, next);
 //  })
