@@ -11,7 +11,7 @@ const app = express();
 
 const superHeroController = new SuperHeroController(API_KEY) ;
 
-const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3001;
 
 
 app.get("/testApi", (req: Request, res: Response) => {
