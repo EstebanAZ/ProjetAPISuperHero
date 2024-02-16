@@ -1,11 +1,10 @@
-# Nom du Projet
+# API Super Hero
 
 ## Description courte du projet.
 
-- Fonctionnalités Principales
-- Fonctionnalité 1
-- Fonctionnalité 2
-- ...
+- afichage de toute les donnée selon l'id choisi
+- affichage de toute les donnée de statistique du héro choisi
+- affichage de l'image du héro choisi
 
 ## Instructions d'installation
 
@@ -15,22 +14,30 @@
 
 ## Configurations requise 
 
-- Clé API sur openSuperHero..
-- Node.js (version x.x.x)
+- Clé API sur [superheroapi.com](https://superheroapi.com/).
 
 ## Exemples d'utilisation
-### Exemple 1 : Récupérer la météo d'un pays
+### Exemple 1 : Récupérer les donnée du héro selon l'id choisi
 
 ```bash
-`http://api.SuperHeroapi.com/v1/current.json?key=${this.API_KEY}&q=${city}&lang=fr``
+`localhost:3000/superHero/:id``
 ```
 
+### Exemple 2: récupérer les statistique du héro selon son id
 
-### Exemple 2
+```bash
+`localhost:3000/superHero/:id/powerstats``
+```
 
-[Documentation officielle de l'Api Meteo](
-https://www.SuperHeroapi.com/docs/)
+### Exemple 2: récupérer l'image du héro selon son id
+
+```bash
+`localhost:3000/superHero/:id/image``
+```
 
 ### Exemple en image
+![Postman Exemple](screen1.png)
 
 ![Postman Exemple](screen.png)
+
+![Postman Exemple](screen2.png)
